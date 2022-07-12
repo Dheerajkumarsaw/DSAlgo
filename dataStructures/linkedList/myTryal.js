@@ -75,6 +75,22 @@ class LinkedList {
         this.head = node;
         this.size++
     }
+    // 1 => 2 => 3 => 4 => 5 => 6 => 7 => 8 => 9 => 10
+    // 10 => 9 => 8 => 7 => 6 => 5 => 4 => => 3 => 2 => 1
+
+    reverse() {
+        let curr = this.head
+        let prev = null
+        
+        let nextNode = curr.next
+        while(curr){
+            this.head.next = prev
+            prev = this.head 
+            this.head = nextNode
+            curr = curr.next
+        }
+        this.head = nextNode
+    }
 }
 
 let list = new LinkedList();
@@ -89,7 +105,9 @@ list.insertAtFirst(16)
 list.insertAtFirst(5)
 
 list.printList()
-
+console.log("=====================")
+list.reverse()
+list.printList()
 // console.log(list.size)
 // console.log("=====================")
 // list.removeElement(10)
