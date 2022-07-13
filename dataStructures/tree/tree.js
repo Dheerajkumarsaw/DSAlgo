@@ -20,7 +20,7 @@ class LinkedList {
             this.head = node;
             this.tail = node;
         } else {
-            this.tail.next = node;
+            this.tail.left = node;
             this.tail = node;
         }
         this.size++
@@ -192,11 +192,11 @@ Tree.insert(11)
 Tree.insert(12)
 
 // console.log(Tree.root)
-// Tree.inOrderTraversal(Tree.root)
-// console.log("=======================")
-// Tree.preOrderTraversal(Tree.root)
-// console.log("=======================")
-// Tree.postOrderTrabversal(Tree.root)
+Tree.inOrderTraversal(Tree.root)
+console.log("=======================")
+Tree.preOrderTraversal(Tree.root)
+console.log("=======================")
+Tree.postOrderTrabversal(Tree.root)
 
 Tree.postOrderSearching(Tree.root, 5)
 console.log(isFound == false ? (`Not Found ,${isFound}`) : isFound)

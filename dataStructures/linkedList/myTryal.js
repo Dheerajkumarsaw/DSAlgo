@@ -78,18 +78,51 @@ class LinkedList {
     // 1 => 2 => 3 => 4 => 5 => 6 => 7 => 8 => 9 => 10
     // 10 => 9 => 8 => 7 => 6 => 5 => 4 => => 3 => 2 => 1
 
-    reverse() {
-        let curr = this.head
-        let prev = null
-        
-        let nextNode = curr.next
-        while(curr){
-            this.head.next = prev
-            prev = this.head 
-            this.head = nextNode
-            curr = curr.next
+    // reverse() {
+    //     let curr = this.head
+    //     let prev = null
+
+    //     let nextNode = curr.next
+    //     while (curr) {
+    //         this.head.next = prev
+    //         prev = this.head
+    //         this.head = nextNode
+    //         curr = curr.next
+    //     }
+    //     this.head = nextNode
+    // }
+
+    insertAtKthPosition(data, k) {
+        let node = new Node(data)
+        if (k == 0) {
+            node.next = this.head;
+            this.head = node
+        } else {
+            let curr = this.head, prev
+            let count = 0
+            while (count < k) {
+                prev = curr
+                curr = curr.next
+                count++
+            }
+            prev.next = node;
+            node.next = curr;
         }
-        this.head = nextNode
+        this.size++
+    }
+
+    reverse() {
+        let curr = this.head;
+        let prev = null;
+        let nextNode = null;
+
+        while (curr) {
+            nextNode = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextNode
+        }
+        this.head = prev
     }
 }
 
@@ -106,7 +139,13 @@ list.insertAtFirst(5)
 
 list.printList()
 console.log("=====================")
+list.insertAtKthPosition(100, 5)
+list.printList()
+console.log("=====================")
 list.reverse()
+list.printList()
+console.log("=====================")
+list.insertAtKthPosition(500, 5)
 list.printList()
 // console.log(list.size)
 // console.log("=====================")
