@@ -11,7 +11,7 @@ function bubbleSortMy(arr) {
     if (!temp) {
         return arr
     }
-    return bubbleSort(arr)
+    return bubbleSortMy(arr)
 }
 
 
@@ -36,4 +36,4 @@ function bubbleSort(arr) {
     return arr
 }
 
-console.log(bubbleSort([2, 5, 4, 6, 3, 4, 8, 0, 1, 6, -6, -9, -8]))
+// console.log(bubbleSort([2, 5, 4, 6, 3, 4, 8, 0, 1, 6, -6, -9, -8]))

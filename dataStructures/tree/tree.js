@@ -6,6 +6,12 @@ class Node {
     }
 }
 
+class lNode{
+    constructor(data)  {
+        this.data = data
+        this.next = null;
+    }
+}
 class LinkedList {
     constructor() {
         this.head = null;
@@ -14,13 +20,13 @@ class LinkedList {
     }
 
     addElement(data) {
-        let node = new Node(data);
+        let node = new lNode(data);
 
         if (!this.head) {
             this.head = node;
             this.tail = node;
         } else {
-            this.tail.left = node;
+            this.tail.next = node;
             this.tail = node;
         }
         this.size++
@@ -32,7 +38,7 @@ class LinkedList {
 
         }
         let cur = this.head
-        this.head = cur.next
+        this.head= cur.next
         cur.next = null;
         return cur.data
     }
@@ -84,7 +90,7 @@ class BinaryTree {
 
             while (!queue.isEmpty()) {
                 let temp = queue.deQueue();
-
+                // console.log(temp)
                 if (temp.left) {
                     queue.enQueue(temp.left)
                 } else {
@@ -184,24 +190,24 @@ Tree.insert(3)
 Tree.insert(4)
 Tree.insert(5)
 Tree.insert(6)
-Tree.insert(7)
-Tree.insert(8)
-Tree.insert(9)
-Tree.insert(10)
-Tree.insert(11)
-Tree.insert(12)
+// Tree.insert(7)
+// Tree.insert(8)
+// Tree.insert(9)
+// Tree.insert(10)
+// Tree.insert(11)
+// Tree.insert(12)
 
 // console.log(Tree.root)
 Tree.inOrderTraversal(Tree.root)
 console.log("=======================")
-Tree.preOrderTraversal(Tree.root)
-console.log("=======================")
-Tree.postOrderTrabversal(Tree.root)
+// Tree.preOrderTraversal(Tree.root)
+// console.log("=======================")
+// Tree.postOrderTrabversal(Tree.root)
 
-Tree.postOrderSearching(Tree.root, 5)
-console.log(isFound == false ? (`Not Found ,${isFound}`) : isFound)
+// Tree.postOrderSearching(Tree.root, 5)
+// console.log(isFound == false ? (`Not Found ,${isFound}`) : isFound)
 
 console.log(Tree.heightOfTree(Tree.root))
 
-Tree.totalLeafNode(Tree.root)
-console.log(totalLeafCount)
+// Tree.totalLeafNode(Tree.root)
+// console.log(totalLeafCount)

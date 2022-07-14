@@ -1,4 +1,11 @@
 class Node {
+    constructor(data) {
+        this.data = data
+        this.next = null
+    }
+}
+
+class BNode {
 
     constructor(data) {
         this.data = data;
@@ -37,26 +44,88 @@ class LinkedList {
         console.log(curr)
         this.head = curr.next;
         curr.next = null
+        this.size--
+        return curr.data
     }
 
-    print() {
-        while (this.head) {
-            console.log(this.head.data);
-            this.head = this.head.next;
-        }
+    // print() {
+    //     while (this.head) {
+    //         console.log(this.head.data);
+    //         this.head = this.head.next;
+    //     }
+    // }
+}
+
+class Queue {
+    constructor() {
+        this.list = new LinkedList()
     }
+
+    enQueue(data) {
+        return this.list.push(data)
+    }
+
+    deQueue() {
+        return this.list.pop()
+    }
+
+    isEmpty() {
+        return this.list.size == 0
+    }
+
+
+}
+
+class BinaryTree {
+    constructor() {
+        this.root = null
+        this.size = 0;
+    }
+
+    insert(data) {
+        let node = new BNode(data);
+
+        if (!this.root) {
+            this.root = node;
+        } else {
+            let queue = new Queue();
+
+            queue.enQueue(this.root);
+            while (!queue.isEmpty()) {
+                let temp = queue.deQueue();
+
+                if (temp.left) {
+                    queue.enQueue(temp.left)
+                } else {
+                    temp.left = node;
+                    return
+                }
+
+                if (temp.right) {
+                    queue.enQueue(temp.right)
+                } else {
+                    temp.right = node
+                    return
+                }
+
+            }
+        }
+        this.size++
+    }
+
+
 }
 
 
-let list = new LinkedList();
+let list = new BinaryTree();
 
-list.push(5)
-list.push(5)
-list.push(5)
-list.push(5)
-list.push(5)
-list.print()
-console.log("================")
-list.pop()
-list.print()
+list.insert(5)
+list.insert(5)
+list.insert(5)
+list.insert(5)
+list.insert(5)
+list.insert()
+console.log(list)
+// list.pop()
+// list.print()
 
