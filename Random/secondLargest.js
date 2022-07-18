@@ -16,4 +16,4 @@ function seccoundLarge(arr) {
     return result;
 }
 
-console.log(seccoundLarge([1,2,5,8,6,9,10,10]));
+console.log(seccoundLarge([1,2]));

@@ -124,6 +124,39 @@ class LinkedList {
         }
         this.head = prev
     }
+    findKthPosotionformlast(k) {
+        let slow = this.head
+        let fast = this.head
+        // console.log(fast.next.next)
+        while (k != 0 && fast) {
+            fast = fast.next
+            k--
+        }
+        //!  Error handle
+        if (fast == null && k != 0) {
+            console.log("Size Exceded")
+            return
+        }
+        // console.log(fast)
+        while (fast) {
+            fast = fast.next
+            slow = slow.next
+        }
+        console.log(slow)
+    }
+
+    findMidOfList() {
+        let slow = this.head
+        let fast = this.head
+        while (fast.next && fast.next.next) {
+            fast = fast.next.next
+            slow = slow.next
+        }
+        if (fast.next) {
+            return slow.next
+        }
+        return slow
+    }
 }
 
 let list = new LinkedList();
@@ -136,11 +169,13 @@ list.insertAtFirst(18)
 list.insertAtFirst(15)
 list.insertAtFirst(16)
 list.insertAtFirst(5)
+list.insertAtFirst(6)
+list.insertAtFirst(8)
 
-console.log(list.head)
-console.log(list.head.next)
-console.log(list.head.next.next)
-// list.printList()
+// list.findKthPosotionformlast(8)
+console.log(list.findMidOfList())
+
+list.printList()
 // console.log("=====================")
 // list.insertAtKthPosition(100, 5)
 // list.printList()

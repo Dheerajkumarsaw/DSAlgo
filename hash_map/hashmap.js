@@ -67,11 +67,12 @@ function isAnagram() {
         }
     }
     for (let i = 0; i < str2.length; i++) {    ///for  making object becs  hasOwnProperty has TC  O(1)
-        if (obj2.hasOwnProperty(str2[i])) {
-            obj2[str2[i]] += 1
-        } else {
-            obj2[str2[i]] = 1
-        }
+        obj2[str2[i]] = (obj2[str2[i]] || 0 ) + 1
+        // if (obj2.hasOwnProperty(str2[i])) {
+        //     obj2[str2[i]] += 1
+        // } else {
+        //     obj2[str2[i]] = 1
+        // }
     }
     for (let key in obj2) { // comparing  both object  *** string ke case m obj2 se kro campare ***
         if (obj2[key] != obj1[key]) {

@@ -41,7 +41,7 @@ class LinkedList {
             return
         }
         let curr = this.head;
-        console.log(curr)
+        // console.log(curr)
         this.head = curr.next;
         curr.next = null
         this.size--
@@ -98,6 +98,7 @@ class BinaryTree {
                     queue.enQueue(temp.left)
                 } else {
                     temp.left = node;
+                    this.size++
                     return
                 }
 
@@ -105,27 +106,70 @@ class BinaryTree {
                     queue.enQueue(temp.right)
                 } else {
                     temp.right = node
+                    this.size++
                     return
                 }
 
             }
         }
-        this.size++
+        // this.size++
     }
 
+    inOrderTraversal(root) {
+        let result = []
+        if (!root) {
+            return result
+        }
+        result = result.concat(this.inOrderTraversal(root.left))
+        result.push(root.data)
+        result = result.concat(this.inOrderTraversal(root.right))
+        return result
+    }
+
+
+    preOrderTraversal(root) {
+        let result = []
+        if (!root) {
+            return result
+        }
+        result.push(root.data)
+        result = result.concat(this.inOrderTraversal(root.left))
+        result = result.concat(this.inOrderTraversal(root.right))
+        return result
+    }
+
+
+    postOrderTraversal(root) {
+        let result = []
+        if (!root) {
+            return result
+        }
+        result = result.concat(this.inOrderTraversal(root.left))
+        result = result.concat(this.inOrderTraversal(root.right))
+        result.push(root.data)
+        return result
+    }
+
+    heightOfTree(root){
+        
+    }
 
 }
 
 
-let list = new BinaryTree();
+let tree = new BinaryTree();
 
-list.insert(5)
-list.insert(5)
-list.insert(5)
-list.insert(5)
-list.insert(5)
-list.insert()
-console.log(list)
+tree.insert(5)
+tree.insert(7)
+tree.insert(8)
+tree.insert(4)
+tree.insert(6)
+tree.insert(10)
+tree.insert(14)
+tree.insert(9)
+console.log(tree.inOrderTraversal(tree.root))
+console.log(tree.preOrderTraversal(tree.root))
+console.log(tree.postOrderTraversal(tree.root))
 // list.pop()
 // list.print()
 

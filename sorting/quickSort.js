@@ -2,6 +2,7 @@
 
 function getCorrectPositionOfPivot(arr, left, right) {
     // taking right most element as a pivot
+
     let pivot = arr[right];
     let correctPositionForPivotSoFar = left - 1;
     // why right-1 why not right
@@ -10,11 +11,25 @@ function getCorrectPositionOfPivot(arr, left, right) {
 
         if (pivot > arr[curr]) {
             correctPositionForPivotSoFar++;
-            [arr[correctPositionForPivotSoFar], arr[curr]] =
-                [arr[curr], arr[correctPositionForPivotSoFar]]
+            [
+                arr[correctPositionForPivotSoFar],
+                arr[curr]
+            ] =
+                [
+                    arr[curr],
+                    arr[correctPositionForPivotSoFar]
+                ]
         }
     }
-    [arr[correctPositionForPivotSoFar + 1], arr[right]] = [arr[right], arr[correctPositionForPivotSoFar]]
+
+    [
+        arr[correctPositionForPivotSoFar + 1],
+        arr[right]
+    ] =
+        [
+            arr[right],
+            arr[correctPositionForPivotSoFar + 1]
+        ]
     return correctPositionForPivotSoFar + 1
 }
 

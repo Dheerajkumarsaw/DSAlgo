@@ -19,14 +19,16 @@ class LinkedList {
             this.tail = node
         } else {
             this.tail.next = node;
+            this.tail = node
         }
         this.size++;
     }
 
     print() {
-        while (this.head) {
-            console.log(this.head.data);
-            this.head = this.head.next
+        let curr = this.head
+        while (curr) {
+            console.log(curr.data);
+            curr = curr.next
         }
     }
 
@@ -44,7 +46,7 @@ class LinkedList {
 
     sizeRev(k) {
         // let list = new LinkedList()
-        if(!this.head){
+        if (!this.head) {
             return
         }
         let curr = this.head
@@ -52,42 +54,59 @@ class LinkedList {
         let nextNode = null
         let count = 0
 
-        while (count < k && curr){
+        while (count < k && curr) {
             nextNode = curr.next
-            curr.next =prev
+            curr.next = prev
             prev = curr
             curr = nextNode
             count++
         }
-        
-        
+
+
     }
 
-    isLoop(){
-        let set  = new Set();
+    isLoop() {
+        let set = new Set();
 
-        while(this.head){
+        while (this.head) {
 
-            if(set.has(this.head.data)){
+            if (set.has(this.head.data)) {
                 return true
-            }else{
+            } else {
                 set.add(this.head.data)
             }
         }
         return false
     }
+    findKthPosotionformlast(k) {
+        let slow = this.head
+        let fast = this.head
+        // console.log(fast.next.next)
+        while (k != 0 && fast) {
+            fast = fast.next
+            k--
+        }
+        // console.log(fast)
+        while (fast) {
+            fast = fast.next
+            slow = slow.next
+        }
+        console.log(slow)
+        
+    }
 }
 
 let list = new LinkedList();
 
-list.addfront(5)
-list.addfront(555)
-list.addfront(50)
-list.addfront(88)
-list.addfront(2)
-list.addfront(500)
-list.addfront(100)
+list.addEle(5)
+list.addEle(555)
+list.addEle(50)
+list.addEle(88)
+list.addEle(2)
+list.addEle(500)
+list.addEle(100)
 
 list.print()
-console.log(list.size)
-console.log(list.isLoop())
+list.findKthPosotionformlast(5)
+// console.log(list.size)
+// console.log(list.isLoop())

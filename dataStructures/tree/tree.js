@@ -108,10 +108,10 @@ class BinaryTree {
         }
     }
 
-    // Tree Traversal Ways
-    // inOrderTraversal    {left => data => right}
-    // preOrdertraversal   {data => left => right}
-    // postOrderTraversal  {left => right => data}
+    //! Tree Traversal Ways
+    //? inOrderTraversal    {left => data => right}
+    //~ preOrdertraversal   {data => left => right}
+    //^ postOrderTraversal  {left => right => data}
 
     inOrderTraversal(root) {
         if (!root) {
