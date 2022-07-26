@@ -31,13 +31,13 @@ class SinglyLinkedList {
         if (this.size === 0) {
             console.log("Queue is Empty");
             return
-        } else {
-            let temp = this.head.next;
-            console.log(this.head.data)
-            this.head.next = null;
-            this.head = temp
         }
+        let temp = this.head;
+        this.head = temp.next;
+        temp.next = null
         this.size--;
+        return temp.data
+
     }
 
     print() {
@@ -63,7 +63,7 @@ class Queue {
     }
 
     deQueue() {
-        this.list.removeELement();
+        return this.list.removeELement();
     }
 
     printQueue() {
@@ -79,44 +79,46 @@ class Queue {
     }
 
     isEmpty() {
-        console.log(this.list.size == 0)
+        return this.list.size == 0
     }
 }
-let queue = new Queue();
 
-queue.enQueue(5)
-queue.enQueue(3)
-queue.enQueue(8)
-queue.enQueue(4)
-queue.enQueue(9)
-queue.enQueue(6)
+module.exports= Queue
+// let queue = new Queue();
 
-queue.printQueue()
-console.log("+=================")
+// queue.enQueue(5)
+// queue.enQueue(3)
+// queue.enQueue(8)
+// queue.enQueue(4)
+// queue.enQueue(9)
+// queue.enQueue(6)
 
-queue.deQueue()
-queue.deQueue()
+// queue.printQueue()
+// console.log("+=================")
 
-console.log("+=================")
-queue.printQueue()
-console.log("+=================")
-queue.getsize
+// queue.deQueue()
+// queue.deQueue()
 
-console.log("+=================")
-queue.frontElement()
+// console.log("+=================")
+// queue.printQueue()
+// console.log("+=================")
+// queue.getsize
 
-console.log("+=================")
-queue.isEmpty()
-// let list = new SinglyLinkedList()
+// console.log("+=================")
+// queue.frontElement()
 
-// list.appendElement(5)
-// list.appendElement(5)
-// list.appendElement(5)
-// list.appendElement(5)
-// list.appendElement(5)
-// list.print()
-// list.removeELement()
-// list.removeELement()
+// console.log("+=================")
+// queue.isEmpty()
+// // let list = new SinglyLinkedList()
+
+// // list.appendElement(5)
+// // list.appendElement(5)
+// // list.appendElement(5)
+// // list.appendElement(5)
+// // list.appendElement(5)
+// // list.print()
+// // list.removeELement()
+// // list.removeELement()
 // list.removeELement()
 // list.removeELement()
 // list.removeELement()
